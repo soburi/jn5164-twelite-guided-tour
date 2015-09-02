@@ -1,0 +1,62 @@
+# review-epubmaker向けの設定ファイルの例。
+# yamlファイルをRe:VIEWファイルのある場所に置き、
+# 「review-epubmaker yamlファイル」を実行すると、<bookname>.epubファイルが
+# 生成されます。
+# このファイルはUTF-8エンコーディングで記述してください。
+
+# ブック名(ファイル名になるもの。ASCII範囲の文字を使用)
+bookname: jn5164-twelite-guided-tour
+# 書名
+booktitle: 楽しくない電子工作 #3' JN5164 (a.k.a TWE-Lite) Guide Tour
+# 著者
+aut: crs
+prt: 国際ソブリ協会
+
+
+date: コミックマーケット88
+rights: |
+ (C) 2015 crs@国際ソブリ協会
+description: 
+# 以下はオプション
+# prt: 出版社
+# asn: Associated name
+# ant: Bibliographic antecedent
+# clb: 貢献者
+# edt: 編集者
+# dsr: デザイナ
+# ill: イラストレータ
+# pht: 撮影者
+# trl: 翻訳者
+# date: 刊行日
+# rights: 権利表記
+# description: ブックの説明
+#
+# coverfile: カバーページのbody要素内に挿入する内容を記述したファイル名
+coverfile: _cover.html
+# coverimage: 表紙用画像ファイル
+#coverimage: jn5164-twelite-guided-tour.eps
+cover_linear: true
+titlepage: true
+# CSSファイル (yamlファイルおよびRe:VIEWファイルを置いたディレクトリにあること
+stylesheet: style.css
+# 目次として抽出するレベル
+toclevel: 1
+# セクション番号を表示するレベル
+secnolevel: 3
+# review-compileに渡すパラメータ
+params: --stylesheet=style.css
+# 目次生成用？
+
+epubversion: 3
+htmlversion: 5
+
+toc: true
+#mytoc: true
+# 奥付生成用
+colophon: true
+texstyle: reviewmacro
+#texdocumentclass: [a4paper,10pt,openany]{jsbook}
+texdocumentclass: ["jsbook", "12pt, twoside, openany"]
+pubhistory: |
+  2015年08月16日 コミックマーケット88
+debug: true

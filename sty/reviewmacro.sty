@@ -1,0 +1,32 @@
+%% from review-pdfmaker
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+
+%%\lhead{\gtfamily\sffamily\bfseries\upshape \leftmark}
+%%\chead{}
+%%\rhead{\gtfamily\sffamily\bfseries\upshape \rightmark}
+
+\fancyhead[RE]{\gtfamily\sffamily\bfseries\upshape \rightmark}
+\fancyhead[LO]{\gtfamily\sffamily\bfseries\upshape \rightmark}
+
+\renewcommand{\sectionmark}[1]{\markright{\thesection~#1}{}}
+\renewcommand{\chaptermark}[1]{\markboth{\prechaptername\ \thechapter\ \postchaptername~#1}{}}
+\renewcommand{\headfont}{\gtfamily\sffamily\bfseries}
+
+\fancypagestyle{plainhead}{%
+\fancyhead{}
+\fancyfoot{} % clear all header and footer fields
+\fancyfoot[CE,CO]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+
+%% using Helvetica as sans-serif
+\renewcommand{\sfdefault}{phv}
+
+\geometry{top=20mm,bottom=15mm,left=15mm,right=20mm}
+
+%% \setlength{\headheight}{16pt}
+\setlength{\headsep}{3pt}
+
+\sloppy

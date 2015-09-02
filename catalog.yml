@@ -1,0 +1,17 @@
+PREDEF:
+
+CHAPS:
+  - 1_introduction.re
+  - 2_1_jn516x_guide_tour_briefs.re
+  - 2_2_jn516x_guide_tour_basics.re
+  - 2_3_jn516x_guide_tour_peripherals.re
+  - 2_4_jn516x_guide_tour_protocols.re
+  - 3_1_building_arduino_package_briefs.re
+  - 3_2_building_arduino_package_structures.re
+  - 3_3_building_arduino_package_core.re
+  - 3_4_building_arduino_package_serial.re
+  - 3_5_building_arduino_package_library.re
+  - 3_6_building_arduino_package_packaging.re
+  - 4_conclusion.re
+POSTDEF:
+  - A_postscript.re
