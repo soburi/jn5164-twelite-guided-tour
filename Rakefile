@@ -2,7 +2,7 @@ require 'fileutils'
 require 'rake/clean'
 require 'yaml'
 
-BOOK = YAML.load_file('config.yml')['bookname']+'-pdf'
+BOOK = YAML.load_file('config.yml')['bookname']
 BOOK_PDF = BOOK+".pdf"
 BOOK_EPUB = BOOK+".epub"
 CONFIG_FILE = "config.yml"
@@ -61,3 +61,16 @@ rule '.re' => ['.md'] do |t|
   sh "md2review #{t.source} > #{t.name}"
 end
 CLEAN.include( FileList['*.re'] )
+
+task :printable => BOOK_PDF do
+  pagecount=`pdf2ps #{BOOK_PDF} /dev/stdout | gs -sDEVICE=bbox -o /dev/null /dev/stdin 2>&1 | grep HiResBoundingBox | wc -l`.to_i
+  sh "pdfbook --short-edge #{BOOK_PDF} '2,4-#{pagecount-1}'    -o printable-body.pdf"
+  sh "pdfnup  --nup 2x1    #{BOOK_PDF} '#{pagecount}' cover.pdf -o printable-cover.pdf"
+end
+CLEAN.include( ['printable-body.pdf', 'printable-cover.pdf'] )
+
+task :publish => BOOK_PDF do
+  sh "pdfjam cover.pdf 1 #{BOOK_PDF} '2,4-'    -o #{BOOK + '-publish.pdf'}"
+end
+CLEAN.include( [BOOK+'-publish.pdf'] )
+
